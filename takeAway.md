@@ -1,3 +1,5 @@
+Possible Errors and Fixes : If prisma says operation not permitted, then just stop the development server and then run prisma commands on the CLI.
+
 nest new projectName
 
 npm install @prisma/client
