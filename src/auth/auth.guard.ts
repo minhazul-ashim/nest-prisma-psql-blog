@@ -22,6 +22,8 @@ export class AuthGuard implements CanActivate {
       const payload = await this.jwtService.verifyAsync(token, {
         secret: process.env.JWT_SECRET,
       });
+      // this line passes the decoded token data to the request object that's received in the controller;
+      // Can be accessed by @Req() req: Request... req.user for further role based guards;
       request['user'] = payload;
     } catch {
       throw new UnauthorizedException();
