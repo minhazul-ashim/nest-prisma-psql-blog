@@ -17,7 +17,6 @@ export class UsersService {
   }
 
   async destroy(id: number) {
-    console.log(id);
     return this.prisma.prismaClient.user.delete({
       where: { id },
     });

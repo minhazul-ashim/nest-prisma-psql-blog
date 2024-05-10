@@ -4,8 +4,9 @@ export class BlogDto {
   @IsNotEmpty()
   title: string;
   @IsNotEmpty()
-  description: string;
-
+  blogContent: string;
   @IsNotEmpty()
-  postetBy: number;
+  postedBy: number;
+
+  thumbail?: string;
 }
