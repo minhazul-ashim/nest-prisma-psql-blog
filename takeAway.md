@@ -12,8 +12,18 @@ create prisma folder along with the service and module prisma files with the sam
 
 run prisma migrate dev [it will create a new migration file and add the table to the database]
 
+!! When we update anything in the schema.prisma model, then we just need to run cmd 'prisma migrate dev', it will automatically run the migrations and migrate the new table structure, no need to separately run migrations like Laravel or Sequlize Node ORM.
+
 then after that create different artifacts of the module to create api services for that module;
 run these commands
 
-nest generate module users
-nest generate controller users
+!! PRISMS MIGRATION ROLLBACK COMMANDS TO CREATE A ROLLBACK
+
+prisma migrate diff \
+> --from-schema-datamodel prisma/schema.prisma \
+> --to-schema-datasource prisma/schema.prisma \
+> --script > down.sql
+
+nest g module users
+nest g controller users
+nest g service users

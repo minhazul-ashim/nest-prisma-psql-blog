@@ -29,7 +29,7 @@ model User {
 model Blog {
   id        Int     @id @default(autoincrement())
   title     String
-  content   String
+  blogContent String @db.Text
   thumbnail String?
 
   createdAt DateTime @default(now())
