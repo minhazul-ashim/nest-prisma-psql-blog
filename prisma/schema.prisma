@@ -19,24 +19,42 @@ model User {
   name  String?
 
   password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  blogs      Blog[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  blogs     Blog[]
+  Comment   Comment[]
 
   @@map("users")
 }
 
 model Blog {
-  id        Int     @id @default(autoincrement())
-  title     String
-  blogContent String @db.Text
-  thumbnail String?
+  id          Int     @id @default(autoincrement())
+  title       String
+  blogContent String  @db.Text
+  thumbnail   String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   postedBy Int
-  user     User @relation(fields: [postedBy], references: [id])
+  user     User      @relation(fields: [postedBy], references: [id])
+
+  Comment  Comment[]
 
   @@map("blogs")
 }
+
+model Comment {
+  id      Int    @id @default(autoincrement())
+  comment String @db.Text
+
+  createdBy Int
+  creator   User @relation(fields: [createdBy], references: [id])
+
+  blogId Int
+  blog   Blog @relation(fields: [blogId], references: [id])
+
+  @@map("comments")
+}
+
+
