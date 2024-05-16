@@ -18,6 +18,6 @@ async function bootstrap() {
 
   // whitelist is true because I want no extra body properties without the ones in the schema. It strips out the extra undefined properties;
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
-  await app.listen(3000);
+  await app.listen(5000);
 }
 bootstrap();

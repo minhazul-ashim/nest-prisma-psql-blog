@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  Paramtype,
   Post,
   Put,
   UseGuards,
@@ -16,7 +17,7 @@ import { CommentDto } from './dto';
 export class CommentController {
   constructor(private readonly commentService: CommentService) {}
   @UseGuards(AuthGuard)
-  @Post()
+  @Post('/')
   store(@Body() body: CommentDto) {
     return this.commentService.store(body);
   }
@@ -27,17 +28,17 @@ export class CommentController {
   }
 
   @Get(':id')
-  getSingle(@Param() id: string) {
+  getSingle(@Param('id') id: string) {
     return this.commentService.get(id);
   }
 
   @Put(':id')
-  update(@Param() id: string, @Body() body: CommentDto) {
+  update(@Param('id') id: string, @Body() body: CommentDto) {
     return this.commentService.update(id, body);
   }
 
   @Delete(':id')
-  destroy(@Param() id: string) {
+  destroy(@Param('id') id: string) {
     return this.commentService.destroy(id);
   }
 }
