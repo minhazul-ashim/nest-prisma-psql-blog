@@ -8,7 +8,11 @@ export class BlogService {
   constructor(private readonly prisma: PrismaService) {}
   async findAll() {
     try {
-      const allBlogs = await this.prisma.prismaClient.blog.findMany();
+      const allBlogs = await this.prisma.prismaClient.blog.findMany({
+        include: {
+          user: true,
+        },
+      });
       return successResponse(allBlogs);
     } catch (error) {
       return errorResponse(error);
@@ -20,6 +24,9 @@ export class BlogService {
       const retrievedBlog =
         await this.prisma.prismaClient.blog.findFirstOrThrow({
           where: { id: parseInt(id) },
+          include: {
+            user: true,
+          },
         });
       return successResponse(retrievedBlog);
     } catch (error) {
