@@ -11,6 +11,7 @@ export class BlogService {
       const allBlogs = await this.prisma.prismaClient.blog.findMany({
         include: {
           user: true,
+          category: true,
         },
       });
       return successResponse(allBlogs);
@@ -26,6 +27,7 @@ export class BlogService {
           where: { id: parseInt(id) },
           include: {
             user: true,
+            category: true,
           },
         });
       return successResponse(retrievedBlog);

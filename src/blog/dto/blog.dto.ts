@@ -7,6 +7,8 @@ export class BlogDto {
   blogContent: string;
   @IsNotEmpty()
   postedBy: number;
+  @IsNotEmpty()
+  categoryId: number;
 
   thumbail?: string;
 }

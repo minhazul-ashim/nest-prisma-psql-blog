@@ -13,7 +13,11 @@ export class CategoryService {
   async listAll() {
     try {
       const listedCategories =
-        await this.prismaService.prismaClient.category.findMany();
+        await this.prismaService.prismaClient.category.findMany({
+          include: {
+            Blog: true,
+          },
+        });
       return successResponse(listedCategories);
     } catch (e) {
       return errorResponse(e);
@@ -25,6 +29,9 @@ export class CategoryService {
       const foundCategory =
         await this.prismaService.prismaClient.category.findFirstOrThrow({
           where: { id: parseInt(id) },
+          include: {
+            Blog: true,
+          },
         });
       if (foundCategory) {
         return successResponse(foundCategory);
