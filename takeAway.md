@@ -24,6 +24,9 @@ prisma migrate diff \
 > --to-schema-datasource prisma/schema.prisma \
 > --script > down.sql
 
+
+
+!!! CLI commands to create a different module artifacts
 nest g module users
 nest g controller users
 nest g service users
