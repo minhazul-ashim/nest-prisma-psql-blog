@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { BlogModule } from './blog/blog.module';
 import { PrismaService } from './prisma/prisma.service';
 import { CommentModule } from './comment/comment.module';
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { CommentModule } from './comment/comment.module';
     ConfigModule.forRoot({ envFilePath: ['.env'], isGlobal: true }),
     BlogModule,
     CommentModule,
+    CategoryModule,
   ],
   providers: [PrismaService],
 })
