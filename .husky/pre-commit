@@ -1,1 +1,4 @@
-npm run huskyChecks
+echo "Running husky scripts, woof woof, please wait"
+npm run lint
+git add .
+echo "Ran the scripts, process complete, woof woof. Can proceed now"
