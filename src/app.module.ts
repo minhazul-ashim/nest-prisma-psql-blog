@@ -7,6 +7,7 @@ import { BlogModule } from './blog/blog.module';
 import { PrismaService } from './prisma/prisma.service';
 import { CommentModule } from './comment/comment.module';
 import { CategoryModule } from './category/category.module';
+import { SubcategoryModule } from './subcategory/subcategory.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { CategoryModule } from './category/category.module';
     BlogModule,
     CommentModule,
     CategoryModule,
+    SubcategoryModule,
   ],
   providers: [PrismaService],
 })
