@@ -8,6 +8,7 @@ import { PrismaService } from './prisma/prisma.service';
 import { CommentModule } from './comment/comment.module';
 import { CategoryModule } from './category/category.module';
 import { SubcategoryModule } from './subcategory/subcategory.module';
+import { UpvoteModule } from './upvote/upvote.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { SubcategoryModule } from './subcategory/subcategory.module';
     CommentModule,
     CategoryModule,
     SubcategoryModule,
+    UpvoteModule,
   ],
   providers: [PrismaService],
 })
